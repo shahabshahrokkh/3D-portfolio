@@ -1,0 +1,8 @@
+node_modules
+.git
+*.log
+.DS_Store
+.vscode
+.idea
+scratch_glb.js
+Project-Sample

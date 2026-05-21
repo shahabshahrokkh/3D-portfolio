@@ -202,13 +202,13 @@ export async function initMemos(scene) {
   const memosData = [
     {
       style: 'sticky-curved', fastener: 'magnet',
-      text: 'My Skills:\nReact\nThree.js', color: '#ffeb3b', font: '"Caveat", cursive', fontSize: 60,
+      text: 'My Skills:\nPython\nDjango\nReact\nNext.js\nThree.js\nCI/CD\nUI/UX', color: '#ffeb3b', font: '"Caveat", cursive', fontSize: 40,
       pos: [-0.6, 2.6, Z_POS], rot: [0, 0, -0.05], url: 'https://reactjs.org'
     },
     {
       style: 'sticky-curved', fastener: 'tape',
-      text: 'GitHub\n@testuser', color: '#81c784', font: '"Kalam", cursive', fontSize: 54,
-      pos: [0.4, 2.6, Z_POS], rot: [0, 0, 0.05], url: 'https://github.com'
+      text: 'GitHub\n@0relic', color: '#81c784', font: '"Kalam", cursive', fontSize: 54,
+      pos: [0.4, 2.6, Z_POS], rot: [0, 0, 0.05], url: 'https://github.com/0relic'
     },
     {
       style: 'polaroid', fastener: 'tape',

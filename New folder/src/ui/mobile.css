@@ -1,0 +1,276 @@
+/**
+ * Mobile-specific styles and utilities
+ * These styles are applied based on device detection
+ */
+
+/* Device-specific classes added by JavaScript */
+.device-mobile {
+    /* Mobile-specific overrides */
+}
+
+.device-tablet {
+    /* Tablet-specific overrides */
+}
+
+.device-desktop {
+    /* Desktop-specific overrides */
+}
+
+/* Performance tier classes */
+.performance-low {
+    /* Reduce visual effects for low-end devices */
+}
+
+.performance-low * {
+    animation-duration: 0s !important;
+    transition-duration: 0.1s !important;
+}
+
+.performance-medium {
+    /* Balanced settings */
+}
+
+.performance-high {
+    /* Full visual effects */
+}
+
+/* Touch-specific improvements */
+.is-mobile {
+    /* Prevent text selection during touch interactions */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Prevent callout on long press */
+    -webkit-touch-callout: none;
+
+    /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+
+    /* Prevent pull-to-refresh */
+    overscroll-behavior: none;
+}
+
+/* Improve tap targets for mobile */
+.is-mobile button,
+.is-mobile a,
+.is-mobile .clickable {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optimize canvas for mobile */
+.is-mobile canvas {
+    /* Prevent context menu on long press */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* Improve touch responsiveness */
+    touch-action: none;
+}
+
+/* Loading optimization for mobile */
+.is-mobile #loading-screen {
+    /* Simpler animations on mobile */
+    animation-duration: 0.5s;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    #control-panel {
+        right: 10px;
+        bottom: 10px;
+        width: 200px;
+        padding: 12px;
+    }
+
+    .panel-header {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .control-list {
+        gap: 8px;
+    }
+
+    .control-list li {
+        font-size: 0.7rem;
+    }
+
+    #reset-view-btn {
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+
+    #arcade-hint {
+        top: 5px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Portrait orientation optimizations */
+@media (max-width: 768px) and (orientation: portrait) {
+
+    /* Optimize for vertical screens */
+    .po-container {
+        grid-template-rows: 35vh 1fr;
+    }
+
+    .po-left {
+        max-height: 35vh;
+    }
+}
+
+/* Very small screens (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    body {
+        font-size: 14px;
+    }
+
+    #control-panel {
+        width: calc(100% - 16px);
+        right: 8px;
+        bottom: 8px;
+        padding: 10px;
+    }
+
+    .loading-title {
+        font-size: 1rem !important;
+    }
+
+    .po-title {
+        font-size: 1rem !important;
+    }
+
+    .po-item-title {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* High DPI screens optimization */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .is-mobile {
+        /* Optimize for retina displays on mobile */
+    }
+}
+
+/* Dark mode support (if device prefers) */
+@media (prefers-color-scheme: dark) {
+    /* Already dark by default, but can add overrides */
+}
+
+/* Light mode support (if needed) */
+@media (prefers-color-scheme: light) {
+    /* Optional light mode adjustments */
+}
+
+/* Notch/Safe area support for modern phones */
+@supports (padding: max(0px)) {
+    .is-mobile #control-panel {
+        padding-bottom: max(15px, env(safe-area-inset-bottom));
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+
+    .is-mobile #arcade-hint {
+        top: max(20px, env(safe-area-inset-top));
+    }
+}
+
+/* Improve scrolling performance */
+.is-mobile .po-list,
+.is-mobile .po-detail-body {
+    /* Use GPU acceleration for scrolling */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: scroll-position;
+}
+
+/* Optimize backdrop blur for mobile */
+.is-mobile .loading-content,
+.is-mobile #control-panel,
+.is-mobile .po-left,
+.is-mobile .po-right {
+    /* Reduce blur on low-end devices */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.performance-low .loading-content,
+.performance-low #control-panel,
+.performance-low .po-left,
+.performance-low .po-right {
+    /* Remove blur on very low-end devices */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(10, 10, 15, 0.9);
+}
+
+/* Touch feedback */
+.is-mobile button:active,
+.is-mobile .clickable:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Prevent zoom on input focus (iOS) */
+.is-mobile input,
+.is-mobile select,
+.is-mobile textarea {
+    font-size: 16px !important;
+}
+
+/* Optimize video playback on mobile */
+.is-mobile video {
+    /* Use native controls on mobile */
+    -webkit-playsinline: true;
+    playsinline: true;
+}
+
+/* Loading spinner optimization */
+.is-mobile #loading-bar {
+    /* Simpler animation */
+    transition: width 0.3s ease-out;
+}
+
+/* Reduce shadow complexity on mobile */
+.is-mobile * {
+    text-shadow: none !important;
+}
+
+.is-mobile #arcade-hint {
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.3) !important;
+}
+
+/* Optimize gradient rendering */
+.performance-low .loading-content,
+.performance-low .po-accent {
+    background: #4facfe !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+/* Connection speed optimizations */
+@media (prefers-reduced-data: reduce) {
+
+    /* Reduce data usage for slow connections */
+    .is-mobile video {
+        preload: none;
+    }
+}

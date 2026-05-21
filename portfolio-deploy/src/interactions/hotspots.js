@@ -206,7 +206,13 @@ export const HotspotActions = {
     }
   },
   openSkills: () => {
-    showUI('Skills - Coming Soon!');
+    const bookshelfModel = ModelRegistry.getModel('bookshelf');
+    if (bookshelfModel) {
+      focusOnObject(bookshelfModel);
+      showUI('📚 Programming Languages');
+      // Reveal the Skills label above the bookshelf
+      window.dispatchEvent(new CustomEvent('reveal-spatial-label', { detail: { modelName: 'bookshelf' } }));
+    }
   },
   playCatAnimation: (object) => {
     showUI('Meow! 🐱');
@@ -294,23 +300,28 @@ export const HotspotActions = {
     toggleContactUI(true);
   },
   focusBookshelf: () => {
-    showUI('📚 Programming Languages');
-    // Reveal the Skills label above the bookshelf
-    window.dispatchEvent(new CustomEvent('reveal-spatial-label', { detail: { modelName: 'bookshelf' } }));
+    const bookshelfModel = ModelRegistry.getModel('bookshelf');
+    if (bookshelfModel) {
+      focusOnObject(bookshelfModel);
+      showUI('📚 Programming Languages');
+      // Reveal the Skills label above the bookshelf
+      window.dispatchEvent(new CustomEvent('reveal-spatial-label', { detail: { modelName: 'bookshelf' } }));
+    }
   },
   focusShelves: (object) => {
     showUI('🖼️ My Photo Frame');
     focusOnObject(object);
   },
   openResume: (object) => {
-    // Focus camera on the resume first
-    if (object) {
-      focusOnObject(object);
+    const resumeModel = ModelRegistry.getModel('resume');
+    if (resumeModel) {
+      focusOnObject(resumeModel);
+      showUI('📄 My Resume');
+      // After camera focuses, show the resume UI
+      setTimeout(() => {
+        toggleResumeUI(true);
+      }, 1200); // Wait for camera transition duration
     }
-    // After camera focuses, show the resume UI
-    setTimeout(() => {
-      toggleResumeUI(true);
-    }, 1200); // Wait for camera transition duration
   }
 };
 

@@ -122,7 +122,7 @@ export function setupSpatialUI(scene, camera) {
 
   const labelConfigs = [
     { modelName: 'laptop', text: 'Projects', icon: '💻', action: HotspotActions.openProjects, extraY: 0.5 },
-    { modelName: 'bookshelf', text: 'Skills', icon: '🧠', action: HotspotActions.openSkills, extraY: 0.4 },
+    { modelName: 'bookshelf', text: 'Skills', icon: '📚', action: HotspotActions.openSkills, extraY: 0.4 },
     { modelName: 'whiteboard', text: 'About Me', icon: '👋', action: HotspotActions.openAbout, extraY: 0.5 },
     { modelName: 'iphone', text: 'Contact', icon: '✉️', action: HotspotActions.openContact, extraY: 0.3 },
     { modelName: 'arcade', text: 'Gaming', icon: '🕹️', action: HotspotActions.playArcade, extraY: 0.5 },

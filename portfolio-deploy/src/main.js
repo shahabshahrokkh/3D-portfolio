@@ -142,6 +142,9 @@ async function init() {
     // Bookshelf icons block raycasting on the bookshelf mesh itself.
     // Auto-reveal the Skills label after a short delay as an onboarding hint.
     setTimeout(() => revealLabel('bookshelf'), 4000);
+
+    // Auto-reveal the Resume label after a short delay
+    setTimeout(() => revealLabel('resume'), 4500);
   });
 
 
